@@ -62,7 +62,6 @@
     "no-trailing-whitespace": true,
     "prefer-const": true,
     "label-position": true,
-    "no-any": true,
     "no-arg": true,
     "no-consecutive-blank-lines": true,
     "no-construct": true,
