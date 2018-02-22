@@ -11,8 +11,7 @@ app.get("/api/twitter/:q", (req, res) => {
   const { q } = req.params;
   client.get("search/tweets", { q, count: 10 }, function(
     error: any,
-    tweets: any,
-    response: any
+    tweets: any
   ) {
     if (error) {
       res.send(error);
@@ -23,3 +22,5 @@ app.get("/api/twitter/:q", (req, res) => {
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`node listening on ${port}`));
+
+export default app;
