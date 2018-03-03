@@ -11,7 +11,7 @@
     "server": "nodemon --exec ts-node src/server.ts",
     "build": "tsc && npm run tslint",
     "dev": "concurrently -k -p \"[{name}]\" -n \"Client,Server\" -c \"cyan.bold,green.bold\" \"npm run client\" \"npm run server\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "npm run build && npm install --dev --prefix client && npm run build --prefix client",
     "start": "node dist/src/server.js",
     "test": "jasmine-ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
@@ -26,7 +26,6 @@
     "twitter": "^1.7.1"
   },
   "devDependencies": {
-    "@angular/cli": "~1.7.0",
     "@types/dotenv": "^4.0.2",
     "@types/express": "^4.11.1",
     "@types/jasmine": "^2.8.6",
