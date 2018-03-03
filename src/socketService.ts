@@ -20,7 +20,7 @@ const service = (io: SocketIO.Server) => {
         stream = client.stream("statuses/filter", { track: query });
 
         stream.on("data", (tweet: any) => {
-          socket.emit("tweet", tweet.text);
+          socket.emit("tweet", tweet);
         });
 
         stream.on("error", (error: any) => console.log(error));
