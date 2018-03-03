@@ -2,6 +2,10 @@
   "name": "twitter-live-wall",
   "version": "1.0.0",
   "description": "Twitter Live Wall",
+  "engines": {
+    "node": "9.3.0",
+    "npm": "5.5.1"
+  },
   "scripts": {
     "client": "npm run dev --prefix client",
     "server": "nodemon --exec ts-node src/server.ts",
