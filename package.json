@@ -12,7 +12,7 @@
     "build": "tsc && npm run tslint",
     "dev": "concurrently -k -p \"[{name}]\" -n \"Client,Server\" -c \"cyan.bold,green.bold\" \"npm run client\" \"npm run server\"",
     "heroku-postbuild": "npm run build && npm install --dev --prefix client && npm run build --prefix client",
-    "start": "node dist/src/server.js",
+    "start": "node dist/server.js",
     "test": "jasmine-ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
