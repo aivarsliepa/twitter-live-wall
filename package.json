@@ -26,6 +26,7 @@
     "twitter": "^1.7.1"
   },
   "devDependencies": {
+    "@angular/cli": "~1.7.0",
     "@types/dotenv": "^4.0.2",
     "@types/express": "^4.11.1",
     "@types/jasmine": "^2.8.6",
