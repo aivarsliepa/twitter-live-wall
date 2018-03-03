@@ -1,1 +1,11 @@
+.app {
+  max-width: 600px;
+  margin: auto;
+  background-color: #fff;
+}
 
+@media screen and (min-width: 600px) {
+  .app {
+    margin-top: 6%;
+  }
+}

@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "description": "Twitter Live Wall",
   "scripts": {
-    "dev": "nodemon --exec ts-node src/server.ts",
+    "client": "npm run dev --prefix client",
+    "server": "nodemon --exec ts-node src/server.ts",
+    "dev":
+      "concurrently -k -p \"[{name}]\" -n \"Client,Server\" -c \"cyan.bold,green.bold\" \"npm run client\" \"npm run server\"",
+    "start": "node src/server.js",
     "test": "jasmine-ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
@@ -23,6 +27,7 @@
     "@types/socket.io": "^1.4.31",
     "@types/socket.io-client": "^1.4.32",
     "@types/supertest": "^2.0.4",
+    "concurrently": "^3.5.1",
     "jasmine-ts": "^0.2.1",
     "nodemon": "^1.15.1",
     "socket.io-client": "^2.0.4",

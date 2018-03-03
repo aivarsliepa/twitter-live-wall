@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="">
+    <img alt="profile image" class="avatar" src="{{tweet.imageUrl}}">
+    <span class="card-title">{{tweet.displayName}}
+      <img *ngIf="tweet.verified" src="/assets/twitter-verified-icon.svg" alt="verified">
+    </span>
+    <span class="card-title">@{{tweet.name}}</span>
+  </div>
+
+  <div class="card-content">
+    <p> {{tweet.text}} </p>
+  </div>
+  <p>
+    {{tweet.createdAt | date:'medium'}}
+  </p>
+  <i class="tiny material-icons">repeat</i> {{tweet.retweetCount}}
+  <i class="tiny material-icons">favorite</i> {{tweet.favoriteCount}}
+</div>
