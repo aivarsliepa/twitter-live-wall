@@ -5,9 +5,10 @@
   "scripts": {
     "client": "npm run dev --prefix client",
     "server": "nodemon --exec ts-node src/server.ts",
-    "dev":
-      "concurrently -k -p \"[{name}]\" -n \"Client,Server\" -c \"cyan.bold,green.bold\" \"npm run client\" \"npm run server\"",
-    "start": "node src/server.js",
+    "build": "tsc && npm run tslint",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"Client,Server\" -c \"cyan.bold,green.bold\" \"npm run client\" \"npm run server\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm run build && npm install --prefix client && npm run build --prefix client",
+    "start": "node dist/src/server.js",
     "test": "jasmine-ts",
     "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
