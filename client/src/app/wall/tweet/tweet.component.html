@@ -1,18 +1,22 @@
 <div class="card">
-  <div class="">
+  <div class="tweet-header">
     <img alt="profile image" class="avatar" src="{{tweet.imageUrl}}">
-    <span class="card-title">{{tweet.displayName}}
-      <img *ngIf="tweet.verified" src="/assets/twitter-verified-icon.svg" alt="verified">
-    </span>
-    <span class="card-title">@{{tweet.name}}</span>
+    <div class="tweet-author">
+      <h5>{{tweet.displayName}}
+        <img *ngIf="tweet.verified" src="/assets/twitter-verified-icon.svg" alt="verified">
+      </h5>
+      <h6>@{{tweet.name}}</h6>
+    </div>
   </div>
 
-  <div class="card-content">
+  <div class="tweet-content">
     <p> {{tweet.text}} </p>
   </div>
-  <p>
-    {{tweet.createdAt | date:'medium'}}
-  </p>
-  <i class="tiny material-icons">repeat</i> {{tweet.retweetCount}}
-  <i class="tiny material-icons">favorite</i> {{tweet.favoriteCount}}
+  <div class="greyed-item">
+    <p>
+      {{tweet.createdAt | date:'medium'}}
+    </p>
+    <i class="tiny material-icons">repeat</i> {{tweet.retweetCount}}
+    <i class="tiny material-icons">favorite</i> {{tweet.favoriteCount}}
+  </div>
 </div>
