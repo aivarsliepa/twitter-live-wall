@@ -9,17 +9,6 @@ import * as io from "socket.io-client";
 
 import Tweet from "../models/Tweet";
 
-const dummyTweet: Tweet = {
-  createdAt: new Date().toString(),
-  displayName: "Aivars Liepa",
-  favoriteCount: 1230,
-  imageUrl: "http://www.catster.com/wp-content/uploads/2017/08/A-fluffy-cat-looking-funny-surprised-or-concerned.jpg",
-  name: "aivarsliepa",
-  retweetCount: 23322,
-  text: "This is just a dummy text to test the tweet design",
-  verified: true
-};
-
 @Injectable()
 export class TweetService {
   private apiUrl = "api/twitter";
@@ -42,8 +31,7 @@ export class TweetService {
   }
 
   getTweets(): Observable<Tweet[]> {
-    // return this.tweets;
-    return Observable.from([[dummyTweet]]);
+    return this.tweets;
   }
 
   queryTweets(query: string) {
