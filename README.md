@@ -18,7 +18,11 @@ Project contains both server source files and client. Both has their own depende
 ### To launch locally
 1. Clone repo
 2. execute to install all dependencies (server and client) 
-  **npm run install-all**
+```bash
+$ npm run install-all
+```
 3. create **.env** file in root and add all necessary Twitter API keys (used at */src/twitterClient.ts*)
 4. execute to start development in watch mode
-  **npm run dev** 
+```bash
+$ npm run dev
+```
