@@ -1,2 +1,4 @@
-<input class="form-control" [formControl]="query">
-<button class="btn btn-info" (click)="search()">Search</button>
+<form [formGroup]="form" (submit)="search()">
+  <input class="form-control" formControlName="query">
+  <button class="btn btn-info" type="submit">Search</button>
+</form>

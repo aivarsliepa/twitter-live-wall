@@ -8,16 +8,19 @@ import { TweetService } from "../services/tweet.service";
   styleUrls: ["./form.component.css"]
 })
 export class FormComponent implements OnInit {
-  query: FormControl;
+  form: FormGroup;
 
-  constructor(private tweetService: TweetService) {}
+  constructor(private tweetService: TweetService) { }
 
   ngOnInit() {
-    this.query = new FormControl();
+    this.form = new FormGroup({
+      query: new FormControl("", [Validators.required])
+    });
   }
 
   search(): void {
-    this.tweetService.queryTweets(this.query.value);
-    this.query.setValue("");
+    const { query } = this.form.controls;
+    this.tweetService.queryTweets(query.value);
+    query.setValue("");
   }
 }

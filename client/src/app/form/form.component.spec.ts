@@ -1,8 +1,9 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { ReactiveFormsModule } from "@angular/forms";
 
-import { FormComponent } from "./form.component";
+import { TweetComponent } from "../wall/tweet/tweet.component";
 import { TweetService } from "../services/tweet.service";
+import { FormComponent } from "./form.component";
 
 describe("FormComponent", () => {
   let component: FormComponent;
@@ -10,10 +11,12 @@ describe("FormComponent", () => {
 
   beforeEach(
     async(() => {
+      const tweetService = jasmine.createSpyObj("TweetService", ["queryTweets"]);
+
       TestBed.configureTestingModule({
-        declarations: [FormComponent],
-        imports: [ReactiveFormsModule],
-        providers: [TweetService]
+        providers: [{ provide: TweetService, useValue: tweetService }],
+        declarations: [FormComponent, TweetComponent],
+        imports: [ReactiveFormsModule]
       }).compileComponents();
     })
   );
@@ -26,5 +29,13 @@ describe("FormComponent", () => {
 
   it("should create", () => {
     expect(component).toBeTruthy();
+  });
+
+  it("should query tweets from TweetService on form submit", () => {
+    fail("TODO");
+  });
+
+  it("should clear input field on form submit", () => {
+    fail("TODO");
   });
 });

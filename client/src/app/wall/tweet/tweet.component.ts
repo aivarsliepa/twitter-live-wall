@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, Input } from "@angular/core";
 
 import Tweet from "../../models/Tweet";
 
@@ -7,10 +7,6 @@ import Tweet from "../../models/Tweet";
   templateUrl: "./tweet.component.html",
   styleUrls: ["./tweet.component.css"]
 })
-export class TweetComponent implements OnInit {
+export class TweetComponent {
   @Input() tweet: Tweet;
-
-  constructor() { }
-
-  ngOnInit() { }
 }

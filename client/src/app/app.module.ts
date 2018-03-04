@@ -3,11 +3,11 @@ import { HttpClientModule } from "@angular/common/http";
 import { ReactiveFormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 
-import { AppComponent } from "./app.component";
-import { WallComponent } from "./wall/wall.component";
 import { TweetComponent } from "./wall/tweet/tweet.component";
-import { FormComponent } from "./form/form.component";
 import { TweetService } from "./services/tweet.service";
+import { WallComponent } from "./wall/wall.component";
+import { FormComponent } from "./form/form.component";
+import { AppComponent } from "./app.component";
 
 @NgModule({
   declarations: [AppComponent, WallComponent, TweetComponent, FormComponent],
@@ -15,4 +15,4 @@ import { TweetService } from "./services/tweet.service";
   providers: [TweetService],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

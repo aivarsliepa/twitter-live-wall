@@ -17,13 +17,16 @@ export class TweetService {
 
   constructor(private http: HttpClient) {
     this.socket = io();
-    Observable.fromEvent(this.socket, "tweet").throttleTime(2000).subscribe(
-      (tweet: any) => {
-        this.tweetsBuffer.pop();
-        this.tweetsBuffer.unshift(this.rawTweetToSanitized(tweet));
-        this.tweets.next(this.tweetsBuffer);
-      }
-    );
+    Observable
+      .fromEvent(this.socket, "tweet")
+      .throttleTime(2000)
+      .subscribe(
+        (tweet: any) => {
+          this.tweetsBuffer.pop();
+          this.tweetsBuffer.unshift(this.rawTweetToSanitized(tweet));
+          this.tweets.next(this.tweetsBuffer);
+        }
+      );
   }
 
   getTweets(): Observable<Tweet[]> {
@@ -31,14 +34,15 @@ export class TweetService {
   }
 
   queryTweets(query: string) {
-    this.http.get<any>(`${this.apiUrl}/${query}`).subscribe(response => {
-      const { tweets } = response;
-      if (tweets) {
-        this.tweetsBuffer = tweets.map(this.rawTweetToSanitized);
-        this.tweets.next(this.tweetsBuffer);
-        this.emitStream(query);
-      }
-    });
+    this.http.get<any>(`${this.apiUrl}/${query}`)
+      .subscribe(response => {
+        const { tweets } = response;
+        if (tweets) {
+          this.tweetsBuffer = tweets.map(this.rawTweetToSanitized);
+          this.tweets.next(this.tweetsBuffer);
+          this.emitStream(query);
+        }
+      });
   }
 
   emitStream(query: string) {
