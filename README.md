@@ -1,7 +1,7 @@
 # Twitter Live Wall
 ----
 
-Deployed at [Heroku](https://gentle-lowlands-95248.herokuapp.com/)
+Deployed at [Heroku](https://twitter-live-wall.herokuapp.com/)
 
 
 #### Known issues:
